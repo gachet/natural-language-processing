@@ -10,7 +10,7 @@ First, you need to perform several preparatory steps (if you have already done t
 - [Create security group](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#create-a-base-security-group). You must add rules to a security group to allow you to connect to your future instance from your IP address using SSH. You might want to allow SSH access from all IPv4 addresses (set to 0.0.0.0/0), because your IP might change.
 
 Next, you are ready to create your first EC2 instance:
-- [Launch a free tier instance](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-launch-instance). For Amazon Machine Image (AMI) on step 3 choose **Ubuntu Server 16.04 LTS**.
+- [Launch a free tier instance](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-launch-instance). For Amazon Machine Image (AMI) choose **Ubuntu Server 16.04 LTS**.
 - [Connect to your instance](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-connect-to-instance-linux) using SSH.
 - Later on you can [start and stop](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html) your instance when needed, and [terminate](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-clean-up-your-instance) it in the end.
 
@@ -28,7 +28,8 @@ Then you will be able to see the notebooks on *localhost:8080* from your browser
 ```sh
 scp -i path/to/your_key.pem path/to/local_file ubuntu@ec2-XX-XXX-X-XX.us-east-2.compute.amazonaws.com:path/to/remote_file
 ``` 
-You might want to install [WinSCP](https://winscp.net/eng/docs/lang:ru) for data transfer if you are using Windows.
+You might need to install [WinSCP](https://winscp.net/eng/docs/lang:ru) for data transfer if you are using Windows.
 
-- It is also a good practice to use [tmux](https://medium.com/@peterxjang/a-minimalist-guide-to-tmux-13675fb160fa) to keep your remote session running even if you disconnect from the machine, e.g. by closing your laptop.
+- It is also a good practice to use [tmux](https://medium.com/@peterxjang/a-minimalist-guide-to-tmux-13675fb160fa) to keep your remote session running even if you disconnect from the machine, e.g. by closing your laptop. 
 
+Thus, to run your scipts on the machine, we suggest that you run:  ssh -> tmux -> docker -> python.
